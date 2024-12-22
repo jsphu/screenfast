@@ -61,18 +61,22 @@ def scriptsDir():
     return scripts
 
 def bashrcExists():
-    bashrc = os.path.join(home, ".bashrc")
-    with open(bashrc, "r") as f:
-        bashrc_content = f.read()
-        if ".bash_aliases" not in bashrc_content and \
-                ".aliases" not in bashrc_content:
-            print("Warning: Neither .bash_aliases nor",
-                ".aliases is sourced in .bashrc.")
-            print("Add the following to your .bashrc:")
-            print('if [ -f ~/.bash_aliases ]; then\n',
-                '. ~/.bash_aliases\nfi')
-            return False
-    return True
+    try:
+        bashrc = os.path.join(home, ".bashrc")
+        with open(bashrc, "r") as f:
+            bashrc_content = f.read()
+            if ".bash_aliases" not in bashrc_content and \
+                    ".aliases" not in bashrc_content:
+                print("Warning: Neither .bash_aliases nor",
+                    ".aliases is sourced in .bashrc.")
+                print("Add the following to your .bashrc:")
+                print('if [ -f ~/.bash_aliases ]; then\n',
+                    '. ~/.bash_aliases\nfi')
+                return False
+        return True
+    except:
+        print("Error: ./.bashrc is not found.")
+        return None
 
 def screenopen():
     home=scriptsDir()
@@ -105,7 +109,9 @@ def aliasWrite():
         
         print("Commands added to {}..".format(target))
         print("To apply changes, run: source ~/.bashrc")
-
+    else:
+        print("Exitting with status code:",2)
+        exit()
 screenrc="{}/.screenrc".format(home)
 
 if not os.path.exists(screenrc):
