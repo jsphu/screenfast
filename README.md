@@ -15,3 +15,10 @@ Terminates given session-name.
 
 If you got already .screenrc it won't touch it.
 New: Bottom indicator text which tells your currently screen session name.
+
+## How to install.
+1. Open your terminal. \<ctrl+alt+T\> (default)
+2. Clone repository. `git clone https://github.com/jsphu/screenfast`
+3. Change directory to 'screenfast'. `cd ./screenfast`
+4. Run python file. `python3 install.py`
+5. And you are done.
