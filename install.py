@@ -120,5 +120,5 @@ if not os.path.exists(screenrc):
 
 bashrcExists()
 aliasWrite()
-os.system("chmod u+x .scripts/screenopen.sh .scripts/screenkill.sh")
+os.system("chmod u+x ~/.scripts/screenopen.sh ~/.scripts/screenkill.sh")
 print("Screen configuration is done.")
