@@ -103,9 +103,9 @@ def aliasWrite():
         if os.path.exists(aliases):
             target=aliases
         scr=screenopen()
-        scrkill=screenkill()
+        scrq=screenkill()
         with open(target,"a") as alias:
-            alias.write('\nalias scr="{}"\nalias scrq="{}"'.format(scr,scrkill))
+            alias.write('alias scr="{}"\nalias scrq="{}"'.format(scr,scrq))
         
         print("Commands added to {}..".format(target))
         print("To apply changes, run: source ~/.bashrc")
