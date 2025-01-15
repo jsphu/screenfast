@@ -9,8 +9,9 @@ startup_message off
 
 # Display a welcome message and session name when attaching
 backtick 1 0 0 echo "$STY"
-hardstatus alwayslastline
-hardstatus string "Attached to: %1`"
+
+hardstatus alwayslastline 
+hardstatus string "%{= kG}Attached to: %{= kw}%-1`:%{= kw}%n %{= kG}| %{= kW}%H %{= kG}| %{= kw}%Y-%m-%d %c"
 """
 
 _screenopen=r"""#!/bin/bash
